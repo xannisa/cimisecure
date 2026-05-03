@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Secure Test (MVP)</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    video { width: 320px; border: 2px solid #333; }
+    .warning { color: red; font-weight: bold; }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/face-landmarks-detection"></script>
+</head>
+<body>
+
+<h2>Animals</h2>
+<div style="display: flex; gap: 20px;">
+
+  <!-- LEFT: QUESTION -->
+  <div style="flex: 1;">
+
+    <p> How many girrafe legs? </p>
+
+    <form id="quizForm">
+    <input type="radio" name="answer" value="A"> A. Infinity<br>
+    <input type="radio" name="answer" value="B"> B. Under 1<br>
+    <input type="radio" name="answer" value="C"> C. Countable<br>
+    <input type="radio" name="answer" value="D"> D. Invisible<br>
+    </form>
+
+    <br>
+    <button onclick="submitAnswer()">Submit</button>
+  </div>
+
+  <!-- RIGHT: CAMERA + LOG -->
+  <div style="flex: 1;">
+    <h3>Camera Monitoring</h3>
+    <video id="video" autoplay muted></video>
+    <canvas id="canvas" width="320" height="240" style="display:none;"></canvas>
+    <p id="status">Camera: OFF</p>
+
+    <h3>Security Log</h3>
+    <ul id="log"></ul>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+
+<style>
+    video {
+    width: 100%;
+    max-width: 350px;
+    border: 2px solid #333;
+    }
+
+    ul {
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    }
+</style>
+
+</body>
+</html>
